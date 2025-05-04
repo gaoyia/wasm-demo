@@ -4,9 +4,10 @@
   "version": "1.0.0",
   "description": "WebAssembly project workspace",
   "scripts": {
-    "dev": "pnpm --filter www start",
-    "build": "pnpm --filter www build",
-    "preview": "pnpm --filter www preview"
+    "start": "pnpm --filter playground start",
+    "build": "wasm-pack build",
+    "build-playground": "pnpm --filter playground build",
+    "preview": "pnpm --filter playground preview"
   },
   "keywords": [
     "webassembly",

@@ -1,3 +1,5 @@
 packages:
-  - 'www'
-  - 'pkg'
+  - playground
+  - pkg
+onlyBuiltDependencies:
+  - core-js

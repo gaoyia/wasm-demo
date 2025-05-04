@@ -1,5 +1,5 @@
 [package]
-name = "wasm-game-of-life"
+name = "uuid-wasm"
 version = "0.1.0"
 authors = ["gaoyi <gaoyia@qq.com>"]
 edition = "2018"
@@ -12,6 +12,9 @@ default = ["console_error_panic_hook"]
 
 [dependencies]
 wasm-bindgen = "0.2.84"
+uuid = { version = "1.4.1", features = ["v4", "js"] }
+web-sys = { version = "0.3.64", features = ["Window", "Document", "Screen", "Performance", "Location"] }
+js-sys = "0.3.64"
 
 # The `console_error_panic_hook` crate provides better debugging of panics by
 # logging them with `console.error`. This is great for development, but requires

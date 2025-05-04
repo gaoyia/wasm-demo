@@ -1,84 +1,76 @@
-<div align="center">
+# WebAssembly UUID Generator
 
-  <h1><code>wasm-pack-template</code></h1>
+这是一个使用Rust和WebAssembly实现的UUID生成器。它提供了以下功能：
 
-  <strong>A template for kick starting a Rust and WebAssembly project using <a href="https://github.com/rustwasm/wasm-pack">wasm-pack</a>.</strong>
+- 生成UUID v4（随机UUID）
+- 生成Nil UUID（全零UUID）
+- 验证UUID的有效性
 
-  <p>
-    <a href="https://travis-ci.org/rustwasm/wasm-pack-template"><img src="https://img.shields.io/travis/rustwasm/wasm-pack-template.svg?style=flat-square" alt="Build Status" /></a>
-  </p>
+## 功能特点
 
-  <h3>
-    <a href="https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/index.html">Tutorial</a>
-    <span> | </span>
-    <a href="https://discordapp.com/channels/442252698964721669/443151097398296587">Chat</a>
-  </h3>
+- 使用Rust的`uuid`库确保高质量的UUID生成
+- WebAssembly实现确保高性能
+- 简单直观的Web界面
+- 包含UUID验证功能
 
-  <sub>Built with 🦀🕸 by <a href="https://rustwasm.github.io/">The Rust and WebAssembly Working Group</a></sub>
-</div>
+## 运行说明
 
-## About
+1. 确保已安装以下工具：
+   - [Rust](https://rustup.rs/)
+   - [wasm-pack](https://rustwasm.github.io/wasm-pack/installer/)
+   - 任意现代浏览器
 
-[**📚 Read this template tutorial! 📚**][template-docs]
+2. 构建项目：
+   ```bash
+   wasm-pack build --target web
+   ```
 
-This template is designed for compiling Rust libraries into WebAssembly and
-publishing the resulting package to NPM.
+3. 启动本地服务器（选择以下任一方式）：
 
-Be sure to check out [other `wasm-pack` tutorials online][tutorials] for other
-templates and usages of `wasm-pack`.
+   使用Python：
+   ```bash
+   # Python 3.x
+   python -m http.server 8080
+   ```
 
-[tutorials]: https://rustwasm.github.io/docs/wasm-pack/tutorials/index.html
-[template-docs]: https://rustwasm.github.io/docs/wasm-pack/tutorials/npm-browser-packages/index.html
+   使用Node.js：
+   ```bash
+   # 使用npx
+   npx http-server
+   ```
 
-## 🚴 Usage
+4. 在浏览器中访问：
+   ```
+   http://localhost:8080
+   ```
 
-### 🐑 Use `cargo generate` to Clone this Template
+## 使用方法
 
-[Learn more about `cargo generate` here.](https://github.com/ashleygwilliams/cargo-generate)
+1. 点击"Generate UUID v4"按钮生成随机UUID
+2. 点击"Generate Nil UUID"按钮生成全零UUID
+3. 在验证框中输入UUID并点击"Validate"按钮检查其有效性
+
+## 技术栈
+
+- Rust
+- WebAssembly (wasm-bindgen)
+- HTML/JavaScript
+- uuid crate
+
+## 项目结构
 
 ```
-cargo generate --git https://github.com/rustwasm/wasm-pack-template.git --name my-project
-cd my-project
+.
+├── src/
+│   ├── lib.rs         # Rust实现代码
+│   └── utils.rs       # 工具函数
+├── pkg/               # 编译后的WebAssembly文件
+├── Cargo.toml         # Rust项目配置
+└── index.html         # Web界面
 ```
 
-### 🛠️ Build with `wasm-pack build`
+## 注意事项
 
-```
-wasm-pack build
-```
-
-### 🔬 Test in Headless Browsers with `wasm-pack test`
-
-```
-wasm-pack test --headless --firefox
-```
-
-### 🎁 Publish to NPM with `wasm-pack publish`
-
-```
-wasm-pack publish
-```
-
-## 🔋 Batteries Included
-
-* [`wasm-bindgen`](https://github.com/rustwasm/wasm-bindgen) for communicating
-  between WebAssembly and JavaScript.
-* [`console_error_panic_hook`](https://github.com/rustwasm/console_error_panic_hook)
-  for logging panic messages to the developer console.
-* `LICENSE-APACHE` and `LICENSE-MIT`: most Rust projects are licensed this way, so these are included for you
-
-## License
-
-Licensed under either of
-
-* Apache License, Version 2.0, ([LICENSE-APACHE](LICENSE-APACHE) or http://www.apache.org/licenses/LICENSE-2.0)
-* MIT license ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
-
-at your option.
-
-### Contribution
-
-Unless you explicitly state otherwise, any contribution intentionally
-submitted for inclusion in the work by you, as defined in the Apache-2.0
-license, shall be dual licensed as above, without any additional terms or
-conditions.
+- 确保浏览器支持WebAssembly
+- 必须通过HTTP服务器访问，直接打开HTML文件将无法工作
+- 首次加载可能需要几秒钟时间编译WebAssembly模块
