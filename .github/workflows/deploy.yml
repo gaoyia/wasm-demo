@@ -35,40 +35,28 @@ jobs:
       - name: Install wasm-pack
         run: curl https://rustwasm.github.io/wasm-pack/installer/init.sh -sSf | sh
 
-      # 设置Node.js环境
+      - uses: pnpm/action-setup@v3 # 如果使用 pnpm，请取消注释
+        with:
+            version: 10
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: pnpm
 
-      # 设置pnpm
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9
-
-      # 构建WASM
-      - name: Build WASM
-        run: wasm-pack build
-
-      # 构建playground
-      - name: Build Playground
-        run: |
-          cd playground
-          pnpm install
-          pnpm run build
-
-      # 配置Pages
-      - name: Setup Pages
+      - name: Setup playground
         uses: actions/configure-pages@v4
+      - name: Install dependencies
+        run: pnpm install
 
-      # 上传制品
+      - name: Build WASM
+        run: pnpm build
+
+      - name: Build playground
+        run: pnpm build-playground
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: playground/dist
-
-      # 部署到GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v4
