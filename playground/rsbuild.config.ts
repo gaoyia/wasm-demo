@@ -9,6 +9,7 @@ export default defineConfig({
     }
   },
   output: {
+    assetPrefix: '/wasm-demo',
     distPath: {
       root: 'dist'
     }
@@ -17,7 +18,8 @@ export default defineConfig({
     mountId: 'app'
   },
   server: {
-    port: 8080
+    port: 8080,
+    base: '/wasm-demo'
   },
   tools: {
     webpack: {
