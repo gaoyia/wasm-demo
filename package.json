@@ -1,0 +1,21 @@
+{
+  "name": "wasm-workspace",
+  "private": true,
+  "version": "1.0.0",
+  "description": "WebAssembly project workspace",
+  "scripts": {
+    "dev": "pnpm --filter www start",
+    "build": "pnpm --filter www build",
+    "preview": "pnpm --filter www preview"
+  },
+  "keywords": [
+    "webassembly",
+    "wasm",
+    "rust",
+    "rsbuild"
+  ],
+  "engines": {
+    "node": ">=16.0.0",
+    "pnpm": ">=8.0.0"
+  }
+}
