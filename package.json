@@ -1,5 +1,5 @@
 {
-  "name": "wasm-workspace",
+  "name": "wasm-demo",
   "private": true,
   "version": "1.0.0",
   "description": "WebAssembly project workspace",
