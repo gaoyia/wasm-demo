@@ -3,13 +3,12 @@
 这是一个使用Rust和WebAssembly实现的UUID生成器。它提供了以下功能：
 
 - 生成UUID v4（随机UUID）
-- 生成Nil UUID（全零UUID）
 - 验证UUID的有效性
 
 ## 功能特点
 
 - 使用Rust的`uuid`库确保高质量的UUID生成
-- WebAssembly实现确保高性能
+- WebAssembly实现确保高性能（实际验证后js的性能更高）
 - 简单直观的Web界面
 - 包含UUID验证功能
 
@@ -26,17 +25,9 @@
    ```
 
 3. 启动本地服务器（选择以下任一方式）：
-
-   使用Python：
-   ```bash
-   # Python 3.x
-   python -m http.server 8080
-   ```
-
    使用Node.js：
    ```bash
-   # 使用npx
-   npx http-server
+   pnpm start
    ```
 
 4. 在浏览器中访问：
@@ -73,4 +64,3 @@
 
 - 确保浏览器支持WebAssembly
 - 必须通过HTTP服务器访问，直接打开HTML文件将无法工作
-- 首次加载可能需要几秒钟时间编译WebAssembly模块
